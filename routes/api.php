@@ -24,8 +24,18 @@ use Illuminate\Support\Facades\Route;
     Route::post('college', 'API\ConfigController@storeCollegeName');
     Route::get('category', 'API\CategoryController@getAllCategoryName');
     Route::post('category', 'API\CategoryController@storeCategoryName');
-    Route::put('category', 'API\CategoryController@update');
+    Route::put('category/{id}', 'API\CategoryController@update');
     Route::delete('category/{id}', 'API\CategoryController@destroy');
+    Route::get('product', 'API\ProductController@getAllProductName');
+    Route::post('product', 'API\ProductController@storeProductName');
+    Route::get('product1', 'API\ProductController@index');
+    Route::get('product2', 'API\ProductController@create');
+    Route::post('product3', 'API\ProductController@product');
+    Route::post('productvar', 'API\ProductVariationController@store');
+    Route::get('productvar', 'API\ProductVariationController@getAllVariationName');
+    Route::post('wishlist', 'API\WishlistController@store');
+    Route::get('wishlist', 'API\WishlistController@getAllWishlistName');
+   
    
     Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'API\UserController@details');

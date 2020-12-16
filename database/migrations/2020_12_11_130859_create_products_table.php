@@ -14,10 +14,11 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('productid');
             $table->string('product_name');
             $table->string('product_slug');
             $table->string('product_category');
+            $table->string('product_categoryid');
             $table->string('category_name');
             $table->string('product_type')->nullable();
             $table->string('cost_product_price')->nullable();
@@ -30,6 +31,7 @@ class CreateProductsTable extends Migration
             $table->string('expiry_date')->nullable();
             $table->string('batch_number')->nullable();
             $table->integer('is_deleted_at')->nullable();
+            $table->boolean('is_available')->nullable();
 
             $table->timestamps();
         });
